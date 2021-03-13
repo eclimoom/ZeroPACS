@@ -28,7 +28,8 @@ Prepare the build with CMake
 ----------------------------
 
 # cd ./Build
-# cmake -GXcode -DCMAKE_OSX_DEPLOYMENT_TARGET=10.8 -DSTATIC_BUILD=ON -DSTANDALONE_BUILD=ON -DALLOW_DOWNLOADS=ON ../OrthancServer
+# === expired === cmake -GXcode -DCMAKE_OSX_DEPLOYMENT_TARGET=10.8 -DSTATIC_BUILD=ON -DSTANDALONE_BUILD=ON -DALLOW_DOWNLOADS=ON ../OrthancServer
+# cmake -GXcode -DCMAKE_OSX_DEPLOYMENT_TARGET=10.15.7 -DSTATIC_BUILD=ON -DSTANDALONE_BUILD=ON -DALLOW_DOWNLOADS=ON -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++  -DCMAKE_CXX_COMPILER=g++ -DCMAKE_OSX_ARCHITECTURES=x86_64 ../OrthancServer
 
 NB: Adapt the value of "CMAKE_OSX_DEPLOYMENT_TARGET" with respect to
 your version of OS X. This version can obtained by typing:
