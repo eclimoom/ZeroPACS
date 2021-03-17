@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SortEvent} from "../../../../shared/directives/advanced-sortable.directive";
 
 @Component({
   selector: 'app-study-list',
@@ -12,4 +13,7 @@ export class StudyListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSort({ column, direction }: any) {
+    console.log("column, direction", column, direction)
+  }
 }
