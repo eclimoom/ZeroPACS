@@ -16,90 +16,21 @@
         </tr>
         </thead>
         <tbody class="study-list">
-        <tr>
+        <tr *ngFor="let s of studies" (dblclick)="handleClick(s.StudyInstanceUID)">
           <td>
-            <div class="name">TCGA-B8-5550</div>
-            <div class="mrn">TCGA-B8-5550</div>
+            <div class="name">{{s.PatientName}}</div>
+            <div class="mrn">{{s.PatientID}}</div>
           </td>
           <td>
             <div class="d-flex justify-content-between">
-              <div class="hide-xs">CT RENAL Mass</div>
+              <div class="hide-xs">{{s.StudyDescription}}</div>
               <div class="flex-column modality-wrap">
-                <div class="modality" title="CT\SR">CT\SR</div>
-                <div title="2962533717415592"
-                     class="text-nowrap">2962533717415592
-                </div>
+                <div class="modality" [title]="s.modalities">{{s.modalities}}</div>
+                <div [title]="s.AccessionNumber" class="text-nowrap">{{s.AccessionNumber}}</div>
               </div>
             </div>
           </td>
-          <td class="text-center align-middle">Mar 10, 2004</td>
-        </tr>
-        <tr class="">
-          <td class="">PD-1-Lung-00013
-            <div style="color: rgb(96, 101, 111);">PD-1-Lung-00013</div>
-          </td>
-          <td>
-            <div style="display: flex; justify-content: space-between;">
-              <div class="hide-xs" style="white-space: pre-wrap; flex-grow: 1;">CT CHEST W CONTRAST</div>
-              <div style="display: flex; flex-direction: column; max-width: 80px; width: 80px;">
-                <div class="modalities" aria-label="CT" title="CT">CT</div>
-                <div aria-label="" title=""
-                     style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"></div>
-              </div>
-            </div>
-          </td>
-          <td style="text-align: center;">Feb 24, 2009</td>
-        </tr>
-        <tr class="">
-          <td class="">PixelMed^AperioCMU-1
-            <div style="color: rgb(96, 101, 111);">PX7832548325932</div>
-          </td>
-          <td>
-            <div style="display: flex; justify-content: space-between;">
-              <div class="hide-xs" style="white-space: pre-wrap; flex-grow: 1;"></div>
-              <div style="display: flex; flex-direction: column; max-width: 80px; width: 80px;">
-                <div class="modalities" aria-label="SM" title="SM">SM</div>
-                <div aria-label="S07-100" title="S07-100"
-                     style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">S07-100
-                </div>
-              </div>
-            </div>
-          </td>
-          <td style="text-align: center;">Dec 29, 2009</td>
-        </tr>
-        <tr class="">
-          <td class="">Neptune
-            <div style="color: rgb(96, 101, 111);">0000002</div>
-          </td>
-          <td>
-            <div style="display: flex; justify-content: space-between;">
-              <div class="hide-xs" style="white-space: pre-wrap; flex-grow: 1;">DFCI CT CHEST W CONTRAST 6023</div>
-              <div style="display: flex; flex-direction: column; max-width: 80px; width: 80px;">
-                <div class="modalities" aria-label="CT" title="CT">CT</div>
-                <div aria-label="000041571" title="000041571"
-                     style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">000041571
-                </div>
-              </div>
-            </div>
-          </td>
-          <td style="text-align: center;">Mar 25, 2014</td>
-        </tr>
-        <tr class="">
-          <td class="">Juno
-            <div style="color: rgb(96, 101, 111);">0000003</div>
-          </td>
-          <td>
-            <div style="display: flex; justify-content: space-between;">
-              <div class="hide-xs" style="white-space: pre-wrap; flex-grow: 1;">PETCT</div>
-              <div style="display: flex; flex-direction: column; max-width: 80px; width: 80px;">
-                <div class="modalities" aria-label="CT\PT" title="CT\PT">CT\PT</div>
-                <div aria-label="0000155811" title="0000155811"
-                     style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">0000155811
-                </div>
-              </div>
-            </div>
-          </td>
-          <td style="text-align: center;">Dec 12, 2014</td>
+          <td class="text-center align-middle">{{s.StudyDate}}</td>
         </tr>
         </tbody>
       </table>
