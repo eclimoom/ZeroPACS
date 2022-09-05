@@ -25,3 +25,21 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## add eslint
+Run `ng lint` add eslint.
+
+
+## 命名规则 
+- 文件命名
+    - 语义化命名
+    - 多个描述性的名称，使用`-`分隔名称中的单词：tc-home.component.ts
+- 类名
+    - 大驼峰`TcHomeComponent`
+
+ 
+
+
+
+
+
