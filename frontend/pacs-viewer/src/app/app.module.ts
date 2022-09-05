@@ -11,6 +11,8 @@ import { AppLayoutComponent } from './pages/_layout/app-layout/app-layout.compon
 import { AppHeaderComponent } from './pages/_layout/app-header/app-header.component';
 import { ViewerComponent } from './pages/viewer/viewer.component';
 import { ViewerLayoutComponent } from './pages/_layout/viewer-layout/viewer-layout.component';
+import {FormControl, FormsModule} from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ViewerLayoutComponent } from './pages/_layout/viewer-layout/viewer-layo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

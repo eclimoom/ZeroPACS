@@ -1,5 +1,7 @@
-import {Injectable, NgZone} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Router} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
+import { map, Observable, Subscribable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,8 @@ export class AuthService {
   constructor(
     // public afAuth: AngularFireAuth,
     public router: Router,
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    // public ngZone: NgZone, // NgZone service to remove outside scope warning
+    private http: HttpClient
   ) {
     // Setting logged in user in localstorage else null
     // this.afAuth.authState.subscribe((user) => {
@@ -29,6 +32,17 @@ export class AuthService {
 
     return user && user.token ? true : false;
   }
+
+  login(payload: any): any {
+    return this.http.post<any>('/oauth/login-v2', payload)
+      .pipe(map(user => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('user', JSON.stringify(user));
+        return user;
+      }));
+  }
+
+
   // Sign out
   signOut() {
       localStorage.removeItem('user');
