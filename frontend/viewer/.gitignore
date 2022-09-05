@@ -9,6 +9,7 @@
 
 # dependencies
 /node_modules
+yarn.lock
 
 # profiling files
 chrome-profiler-events*.json
@@ -17,6 +18,7 @@ speed-measure-plugin*.json
 # IDEs and editors
 /.DS_Store
 /.idea
+../.idea
 .project
 .classpath
 .c9/
@@ -45,3 +47,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+../.idea/
