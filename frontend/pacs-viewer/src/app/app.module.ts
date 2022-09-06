@@ -16,6 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+// reducers
+import { appReducer } from './core/store/app.reducer';
+import { authReducer } from './core/store/reducers/auth.reducer';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,18 @@ import { environment } from '../environments/environment';
     AppHeaderComponent,
     ViewerComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, StoreModule.forRoot({}, {}), StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    StoreModule.forRoot({ appState: appReducer, user: authReducer }),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
+  ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })

@@ -7,12 +7,11 @@
 .entry-header {
   width: 100%;
   padding: 10px 15px;
-  height: $top-bar-height
+  height: $top-bar-height;
 }
 
-
 .entry-header.header-big {
-  background: rgba(21, 25, 30, .7);
+  background: rgba(21, 25, 30, 0.7);
   padding: 35px $study-list-padding;
   height: auto;
   display: inline-block;
@@ -30,18 +29,17 @@
 
   .header-logo-text {
     width: 474px;
-    height: auto
+    height: auto;
   }
-
 }
 
 .header-left-box {
   display: inline-block;
-  position: relative
+  position: relative;
 }
 
 .header-viewerLink {
-  float: left
+  float: left;
 }
 
 .header-brand {
@@ -52,37 +50,35 @@
   text-decoration: none;
 }
 
-
 .header-logo-image {
   fill: transparent;
   height: 100%;
   margin: 0 8px 0 0;
   width: 30px;
-  float: left
+  float: left;
 }
-
 
 .header-btn {
   color: $text-secondary-color;
   cursor: pointer;
   font-size: 13px;
   font-weight: 500;
-  line-height: 26px
+  line-height: 26px;
 }
 
 .header-btn:hover {
-  color: $hover-color
+  color: $hover-color;
 }
 
 .header-btn:active {
-  color: $active-color
+  color: $active-color;
 }
 
 .header-studyListLinkSection {
   border-left: $ui-border-thickness solid $ui-border-color;
   margin: 3px 0 0 10px;
   padding: 0 0 0 10px;
-  display: inline-block
+  display: inline-block;
 }
 
 .header-menu {
@@ -93,11 +89,11 @@
   font-weight: 400;
   line-height: 18px;
   text-decoration: none;
-  margin-right: 10px
+  margin-right: 10px;
 }
 
 .entry-header.header-big .header-menu {
-  margin-right: 0
+  margin-right: 0;
 }
 
 .header-menu .research-use {
@@ -105,7 +101,7 @@
   font-size: 13px;
   font-weight: 700;
   color: #91b9cd;
-  margin-right: 1rem
+  margin-right: 1rem;
 }
 
 .notification-bar {
@@ -117,29 +113,30 @@
   background-color: #91b9cd;
   color: #fff;
   font-weight: 700;
-  text-align: center
+  text-align: center;
 }
 
 @media only screen and (max-width: 768px) {
-  .entry-header, .entry-header.header-big {
-    padding: 30px 15px 10px
+  .entry-header,
+  .entry-header.header-big {
+    padding: 30px 15px 10px;
   }
 
   .entry-header.header-big .header-logo-image {
     margin: 0 10px 0 0;
     width: 25px;
-    height: 25px
+    height: 25px;
   }
 
   .entry-header.header-big .header-logo-text {
-    width: 40%
+    width: 40%;
   }
 
   .notification-bar {
-    display: block
+    display: block;
   }
 
   .header-menu .research-use {
-    display: none
+    display: none;
   }
 }

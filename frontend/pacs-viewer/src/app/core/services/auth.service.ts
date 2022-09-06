@@ -1,10 +1,11 @@
-import {Injectable} from '@angular/core';
-import {Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { map, Observable, Subscribable } from 'rxjs';
+import { User } from '../store/models/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   userData: any;
@@ -35,7 +36,7 @@ export class AuthService {
 
   login(payload: any): any {
     return this.http.post<any>('/oauth/login-v2', payload).pipe(
-      map(result => {
+      map((result) => {
         const { data, success } = result;
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         if (success) {
@@ -47,10 +48,13 @@ export class AuthService {
     );
   }
 
+  loginV2(payload: User): any {
+    return this.http.post<any>('/oauth/login-v2', payload);
+  }
 
   // Sign out
   signOut() {
-      localStorage.removeItem('user');
-      this.router.navigate(['login']).then();
+    localStorage.removeItem('user');
+    this.router.navigate(['login']).then();
   }
 }
