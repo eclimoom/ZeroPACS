@@ -30,16 +30,21 @@ export class AuthService {
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
 
-    return user && user.token ? true : false;
+    return user && user.access_token ? true : false;
   }
 
   login(payload: any): any {
-    return this.http.post<any>('/oauth/login-v2', payload)
-      .pipe(map(user => {
+    return this.http.post<any>('/oauth/login-v2', payload).pipe(
+      map(result => {
+        const { data, success } = result;
         // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('user', JSON.stringify(user));
-        return user;
-      }));
+        if (success) {
+          // 判断是否有权限
+          localStorage.setItem('user', JSON.stringify(data));
+        }
+        return data;
+      })
+    );
   }
 
 
