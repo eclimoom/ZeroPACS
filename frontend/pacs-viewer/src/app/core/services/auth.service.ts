@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable, Subscribable } from 'rxjs';
-import { User } from '../store/models/user';
+import { User } from 'src/app/models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -41,7 +41,7 @@ export class AuthService {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         if (success) {
           // 判断是否有权限
-          localStorage.setItem('user', JSON.stringify(data));
+          // localStorage.setItem('user', JSON.stringify(data));
         }
         return data;
       })
@@ -49,6 +49,7 @@ export class AuthService {
   }
 
   loginV2(payload: User): any {
+    // console.log(payload, 'payload');
     return this.http.post<any>('/oauth/login-v2', payload);
   }
 
