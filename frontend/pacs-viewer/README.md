@@ -60,6 +60,11 @@ ng generate class core/store/selector/auth.selector
 
 ### appReducer
 
-项目预算: 科学评估项目周期, 提高预算精度, 经费按时下放,保障考研人员静心做研究
-人力成本: 完善绩效考核, 健全的奖惩制度,提高个人主动性和项目质量
-服务器与硬件成本: 避免固定资产重复投入、闲置浪费
+### add mock mode
+
+`npm run mock`
+
+- add json file in `/src/mocks/`
+- add interceptor file `src/app/core/mock-interceptor.ts`
+- add environment.mock.ts file `/environment/environment.mock.ts`
+- 

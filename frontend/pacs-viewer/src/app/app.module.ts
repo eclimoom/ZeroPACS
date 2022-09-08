@@ -12,7 +12,7 @@ import { AppHeaderComponent } from './pages/_layout/app-header/app-header.compon
 import { ViewerComponent } from './pages/viewer/viewer.component';
 import { ViewerLayoutComponent } from './pages/_layout/viewer-layout/viewer-layout.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
@@ -20,6 +20,7 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { metaReducers, reducers, effects } from './core/store';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { MockInterceptor } from './core/mock-interceptor';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,15 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     }),
     StoreRouterConnectingModule.forRoot(),
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [
+    AuthService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MockInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

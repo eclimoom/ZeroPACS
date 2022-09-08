@@ -26,12 +26,10 @@
       ZeroPACS
     </a>
   </div>
-  <div class="header-menu">
-    <span class="research-use">{{ userInfo$?.username }}</span>
-    <div class="dd-menu">
-      <div class="dd-menu-toggle">
-        <span class="dd-title">Options</span><span class="dd-caret-down"></span>
-      </div>
-    </div>
+  <div class="header-menu" *ngIf="userInfo$ | async as user">
+    <span class="profile">{{ user.username }}</span>
+    <button class="btn btn-sm btn-outline-info mx-2" (click)="logout()">
+      退出
+    </button>
   </div>
 </div>

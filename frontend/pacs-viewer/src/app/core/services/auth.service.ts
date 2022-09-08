@@ -3,29 +3,16 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable, Subscribable } from 'rxjs';
 import { User } from 'src/app/models/user';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  apiPrefix = environment.apiPrefix;
   userData: any;
-  constructor(
-    // public afAuth: AngularFireAuth,
-    public router: Router,
-    // public ngZone: NgZone, // NgZone service to remove outside scope warning
-    private http: HttpClient
-  ) {
-    // Setting logged in user in localstorage else null
-    // this.afAuth.authState.subscribe((user) => {
-    //   if (user) {
-    //     this.userData = user;
-    //     localStorage.setItem('user', JSON.stringify(this.userData));
-    //     JSON.parse(localStorage.getItem('user')!);
-    //   } else {
-    //     localStorage.setItem('user', 'null');
-    //     JSON.parse(localStorage.getItem('user')!);
-    //   }
-    // });
+  constructor(public router: Router, private http: HttpClient) {
+    console.log('apiPrefix', this.apiPrefix);
   }
   // Returns true when user is login in and have token
   get isLoggedIn(): boolean {
@@ -35,27 +22,21 @@ export class AuthService {
   }
 
   login(payload: any): any {
-    return this.http.post<any>('/oauth/login-v2', payload).pipe(
-      map((result) => {
-        const { data, success } = result;
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
-        if (success) {
-          // 判断是否有权限
-          // localStorage.setItem('user', JSON.stringify(data));
-        }
-        return data;
-      })
-    );
-  }
-
-  loginV2(payload: User): any {
-    // console.log(payload, 'payload');
-    return this.http.post<any>('/oauth/login-v2', payload);
+    return this.http
+      .post<any>(`${this.apiPrefix}/oauth/login-v2`, payload)
+      .pipe(
+        map((result) => {
+          // const { data, success } = result;
+          // if (success) {
+          // 判断是否有权限 没有权限 success 返回 false
+          // }
+          return result;
+        })
+      );
   }
 
   // Sign out
   signOut() {
-    localStorage.removeItem('user');
     this.router.navigate(['login']).then();
   }
 }

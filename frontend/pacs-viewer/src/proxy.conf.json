@@ -1,6 +1,6 @@
 [
   {
-    "context": ["/oauth", "/api-v2"],
+    "context": ["^/oauth", "^/api-v2"],
     "target": "http://192.168.6.34",
     "secure": false
   }

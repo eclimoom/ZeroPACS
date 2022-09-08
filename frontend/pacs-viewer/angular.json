@@ -23,7 +23,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": ["src/favicon.ico", "src/assets", "src/mocks"],
             "styles": [
               "node_modules/bootstrap/scss/bootstrap.scss",
               "src/styles/styles.scss"
@@ -52,6 +52,14 @@
               ],
               "outputHashing": "all"
             },
+            "mock": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.mock.ts"
+                }
+              ]
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -68,6 +76,9 @@
           "configurations": {
             "production": {
               "browserTarget": "pacs-viewer:build:production"
+            },
+            "mock": {
+              "browserTarget": "pacs-viewer:build:mock"
             },
             "development": {
               "browserTarget": "pacs-viewer:build:development",

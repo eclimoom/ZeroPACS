@@ -7,17 +7,17 @@ import {
   SettingsState,
   settingsMetaReducer,
 } from './settings';
-import { authReducer, AuthState } from './auth/auth.reducer';
+import { authFeatureName, authReducer, AuthState } from './auth/auth.reducer';
 import { AuthEffects } from './auth/auth.effects';
 
 export interface AppState {
   settings: SettingsState;
-  userInfo: AuthState;
+  auth: AuthState;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
   settings: settingsReducer,
-  userInfo: authReducer,
+  auth: authReducer,
 };
 
 // this will save part of redux store into localstorage
@@ -26,7 +26,7 @@ export function localStorageSyncReducer(
   reducer: ActionReducer<any>
 ): ActionReducer<any> {
   return localStorageSync({
-    keys: ['settings', 'userInfo'],
+    keys: ['settings', authFeatureName],
     rehydrate: true,
   })(reducer);
 }

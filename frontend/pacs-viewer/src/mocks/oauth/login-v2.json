@@ -1,0 +1,35 @@
+{
+  "success": true,
+  "data": {
+    "access_token": "eyJhbGciOiJIUzUxMiIsImlhdCI6MTY2MjM3MTY4OSwiZXhwIjoxNjYyNDU4MDg5fQ.eyJ1c2VybmFtZSI6ImhlanVuamkifQ.kKn-IMaAIySyHxi9F6fquY-_WUssL1YMj7cxlf02EGqNEqCZhk5qOFA548m3mPI2h7hTVlOcgpb15zwdx3K2Xw",
+    "permissions": [
+      "Reportview_LowerHospital",
+      "Reportremoved",
+      "UserCreate_Hospital",
+      "Dataoutput",
+      "OrthancDoctor",
+      "Datadeletion",
+      "Radiology",
+      "Neurosurgery",
+      "Reporteditor",
+      "Reportreview",
+      "Reporteditor_LowerHospital",
+      "Reportview",
+      "Dataview_LowerHospital",
+      "Ultrasound",
+      "Management",
+      "Dataoutput_LowerHospital",
+      "ManagementAdmin",
+      "Research",
+      "Remoteconsultation",
+      "Dataview",
+      "Deleteunpublisheddata_LowerHospital",
+      "ManagementOrthanc",
+      "Datadeletion_LowerHospital",
+      "OrthancAdmin"
+    ],
+    "username": "hejunji",
+    "userid": "5da3b0fabfaa11ec99c83dd905ea2f39",
+    "expires_in": 86400
+  }
+}
